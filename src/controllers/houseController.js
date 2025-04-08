@@ -1,5 +1,6 @@
 const houseModel = require("../models/houseModel");
 
+
 const getAllHouses = async (req, res) => {
     try {
         const houses = await houseModel.getHouses();
@@ -56,6 +57,5 @@ const deleteHouse = async (req, res) => {
         res.status(500).json({ message: "Erro ao deletar casa." });
     }
 };
-
 
 module.exports = { getAllHouses, getHouse, createHouse, updateHouse, deleteHouse };
