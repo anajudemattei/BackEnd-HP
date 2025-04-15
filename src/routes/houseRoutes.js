@@ -1,8 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const houseController = require("../controllers/houseController");
-
-
 /**
  * @swagger
  * tags:
@@ -41,7 +39,6 @@ router.get("/houses", houseController.getAllHouses);
  *         description: Casa não encontrada
  */
 router.get("/houses/:id", houseController.getHouse);
-
 
 /**
  * @swagger
@@ -112,23 +109,4 @@ router.delete("/houses/:id", houseController.deleteHouse);
  *         description: Casa atualizada
  */
 router.put("/houses/:id", houseController.updateHouse);
-
-/**
- * @swagger
- * /api/house/{id}:
- *   delete:
- *     summary: Deleta uma casa
- *     tags: Houses
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         schema:
- *           type: integer
- *     responses:
- *       200:
- *         description: Casa deletado com sucesso
- */
-router.delete("/houses/:id", houseController.deleteHouse);
-
 module.exports = router;
