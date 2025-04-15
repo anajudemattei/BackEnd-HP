@@ -4,6 +4,10 @@ const cors = require("cors");
 const wizardRoutes = require("./src/routes/wizardRoutes");
 const houseRoutes = require("./src/routes/houseRoutes");
 const reportRoutes = require("./src/routes/reportRoutes");
+const setupSwagger = require('./src/config/swagger');
+const path = require("path");
+
+
 
 const app = express();
 app.use(cors());
@@ -12,6 +16,8 @@ app.use(express.json());
 app.use("/api/wizards", wizardRoutes);
 app.use("/api/houses", houseRoutes);
 app.use("/api/report", reportRoutes);
+setupSwagger(app);
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
